@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+</head>
+
+<body>
+    <main>
+        <div class="container row">
+            <section class="ListContainer column">
+                <!-- here we'll render contact  -->
+                <div id="people" class="Contact_list"></div>
+                <!-- mark of contact  -->
+
+                <!-- mark of contact  -->
+            </section>
+            <br>
+            <!-- new contact form  -->
+            <form autocomplete="off" class="js-form column">
+                <div class="name">
+                    <i class="far fa-user"></i>
+                    <input type="text" id="fullName" placeholder="Enter name" />
+                </div>
+                <div class="email">
+                    <i class="fas fa-at"></i>
+                    <input type="email" id="myEmail" placeholder="Enter email" />
+                </div>
+
+                <div class="number">
+                    <i class="fas fa-phone"></i>
+                    <input type="tel" id="myTel" placeholder="Enter number" />
+                </div>
+
+                <div class="img">
+                    <i class="far fa-image"></i>
+                    <input type="url" id="imgurl" placeholder="Enter image url" />
+                </div>
+                <button type="submit" class="submitbtn">Add Contact</button>
+            </form>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+    <script src="https://kit.fontawesome.com/dd8c49730d.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
