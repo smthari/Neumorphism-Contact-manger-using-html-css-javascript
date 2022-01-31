@@ -1,0 +1,34 @@
+/* create css variables adding basic styling into body and html */
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-color: #eef0f4;
+  --color: #333;
+  --togglebg: #333;
+  --contactIconColor: crimson;
+  --inputTextColor: #111;
+  --deleteIconColor: #111;
+  --filter: drop-shadow(-8px -8px 12px #ffffff)
+    drop-shadow(8px 8px 12px #c3c5c8);
+  --roundcolor: #eef0f4;
+  --toggleslider: #111;
+  --togglesliderColor: #111;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  line-height: 1.4;
+  background: var(--bg-color);
+}

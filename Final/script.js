@@ -1,10 +1,10 @@
 // object for storing a contacts in array for localstorage
 let contacts = [];
 
-/* console.log(contacts); */
+console.log("new ", contacts);
 
 function renderContact(contact) {
-  /* set item to localStorage to store data */
+  //  set item to localStorage to store data
   localStorage.setItem("contacts", JSON.stringify(contacts));
 
   // selecting the list where we will appending a all node items
@@ -41,10 +41,46 @@ function renderContact(contact) {
   list.append(node);
 }
 
+// function for adding new contact with 5 parameters
+// This function will create a new contact object based on the
+// detail that was entered in the form , and push it into
+// the `contacts` array
+function addContact(name, email, imageurl, contactnumber, id) {
+  // creating object for storing Contact details name email etc ..
+  const contactObject = {
+    name: document.getElementById("fullName").value,
+    email: document.getElementById("myEmail").value,
+    imageurl: document.getElementById("imgurl").value,
+    contactnumber: document.getElementById("myTel").value,
+    id: Date.now(),
+    // deleted: false,
+  };
+
+  // push a contactObject in todoItems array for store a data as a array in localstorage
+  contacts.push(contactObject);
+  console.log("from adContact function", contactObject);
+  console.log("from addContact function", contacts);
+  // rendering contactObject in renderContact function as a prameter to access the property of contactObject
+  renderContact(contactObject);
+}
+
+// add a event listner submit to the form
+const form = document.querySelector(".js-form");
+form.addEventListener("submit", (event) => {
+  event.preventDefault();
+  // when the form is submitted addContact function is called
+  addContact();
+  form.reset();
+});
+
 const list = document.querySelector(".Contact_list");
+// adding click event listner in list element
 list.addEventListener("click", (event) => {
+  // if event.target classlist have js-delete-contact
   if (event.target.classList.contains("js-delete-contact")) {
+    // then get the data key of their parentElement which is article for our project by using dataset.key method
     const itemKey = event.target.parentElement.dataset.key;
+    // then call our deletectContact function by passing itemKey as a argument
     deleteContact(itemKey);
   }
 });
@@ -56,38 +92,15 @@ function deleteContact(key) {
   // and a `deleted` property which is set to true
   const UpdatedContactObject = {
     deleted: true,
+    other: "other",
     ...contacts[index],
   };
-  // remove the contactobject item from the array by filtering it out
+  // remove the contactobject item from the array by filtering it out otherwise it will not delete contact item by click on delete button from localstorage
   contacts = contacts.filter((item) => item.id !== Number(key));
   renderContact(UpdatedContactObject);
+  // console.log(contacts);
+  // console.log(index, "UpdatedContactObject", UpdatedContactObject);
 }
-
-// function for adding todo
-function addContact(name, email, imageurl, contactnumber, id) {
-  const contactObject = {
-    name: document.getElementById("fullName").value,
-    email: document.getElementById("myEmail").value,
-    imageurl: document.getElementById("imgurl").value,
-    contactnumber: document.getElementById("myTel").value,
-    id: Date.now(),
-  };
-
-  // push a contactObject in todoItems array for store a data as a array in localstorage
-  contacts.push(contactObject);
-  /* console.log(todoItems); */
-  // rendering contactObject in renderContact function as a prameter
-  renderContact(contactObject);
-}
-
-// add a event listner submit to the form
-const form = document.querySelector(".js-form");
-form.addEventListener("submit", (event) => {
-  event.preventDefault();
-  // when the form is submitted addTodo function is called
-  addContact();
-  form.reset();
-});
 
 // adding a add event listner when content is loaded and showing stored data array on the screen
 document.addEventListener("DOMContentLoaded", () => {
@@ -99,27 +112,3 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
-
-
-document.addEventListener("contextmenu", (event) => event.preventDefault());
-document.onkeydown = function (e) {
-  // disable F12 key
-  if (e.keyCode == 123) {
-    return false;
-  }
-
-  // disable I key
-  if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
-    return false;
-  }
-
-  // disable J key
-  if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
-    return false;
-  }
-
-  // disable U key
-  if (e.ctrlKey && e.keyCode == 85) {
-    return false;
-  }
-};
