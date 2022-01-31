@@ -10,7 +10,7 @@ html {
   padding: 0;
 }
 
-[data-theme="light"] {
+:root {
   --bg-color: #eef0f4;
   --color: #333;
   --togglebg: #333;
@@ -22,19 +22,6 @@ html {
   --roundcolor: #eef0f4;
   --toggleslider: #111;
   --togglesliderColor: #111;
-}
-
-[data-theme="dark"] {
-  --bg-color: #333;
-  --color: #ccc;
-  --contactIconColor: lightblue;
-  --inputTextColor: #fff;
-  --deleteIconColor: #fff;
-  --filter: drop-shadow(-5px -5px 6px #16151530)
-    drop-shadow(5px 5px 6px #13111178);
-  --roundcolor: #333;
-  --toggleslider: #eef0f4;
-  --togglesliderColor: #fff;
 }
 
 body {
