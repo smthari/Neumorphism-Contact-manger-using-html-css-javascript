@@ -1,3 +1,4 @@
+/* Basic styling  */
 html {
   box-sizing: border-box;
 }
@@ -10,6 +11,7 @@ html {
   padding: 0;
 }
 
+/* Creating css variables for colors, typography, visuals etc . */
 :root {
   --bg-color: #eef0f4;
   --color: #333;
@@ -31,6 +33,7 @@ body {
   background: var(--bg-color);
 }
 
+/* Adding styling into .container and contact .ListContainer  referencing –color, --bg-color, --filter1 css variable */
 .container {
   margin: 0 auto;
   padding-left: 10px;
@@ -54,9 +57,9 @@ body {
   filter: var(--filter);
 }
 
+/* Adding styling into contact and contactIcon referencing –contactIconcolor, --deleteIconColor css variables */
 .person {
   display: flex;
-  /* justify-content: space-between; */
   column-gap: 0.75rem;
   margin-bottom: 1.5rem;
   align-items: center;
@@ -106,6 +109,7 @@ body {
   fill: var(--deleteIconColor);
 }
 
+/* Adding styling into contact form referencing –bgcolor, --filter, --inputTextColor css variables */
 form {
   width: 50%;
   left: 50%;
